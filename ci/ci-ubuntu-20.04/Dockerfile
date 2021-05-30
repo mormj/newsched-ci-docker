@@ -57,6 +57,7 @@ RUN apt-get -y install -q \
     git \
     python3-pip \
     cmake \
+    pkg-config \
     ca-certificates \
     --no-install-recommends
 RUN apt-get clean
