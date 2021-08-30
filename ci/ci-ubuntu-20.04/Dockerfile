@@ -33,6 +33,7 @@ RUN mv /sbin/sysctl /sbin/sysctl.orig \
     ninja-build \
     libboost-dev \
     libboost-program-options-dev \
+    libboost-thread-dev \
     libfftw3-dev \
     libgmp-dev \
     libgsl0-dev \
