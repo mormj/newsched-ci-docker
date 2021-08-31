@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 LABEL maintainer="mormjb@gmail.com"
 
-ENV security_updates_as_of 2020-12-18
+ENV security_updates_as_of 2021-08-31
 
 # Prepare distribution
 RUN apt-get update -q \
