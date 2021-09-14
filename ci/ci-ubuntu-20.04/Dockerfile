@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 LABEL maintainer="mormjb@gmail.com"
 
-ENV security_updates_as_of 2021-08-31
+# ENV security_updates_as_of 2021-08-31
 
 # Prepare distribution
 RUN apt-get update -q \
@@ -19,6 +19,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
     pybind11-dev \
     python3-dev \
     python3-numpy \
+    libqwt-qt5-dev \
     --no-install-recommends \
     && apt-get clean
 
@@ -50,6 +51,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
     xvfb \
     lcov \
     python3-scipy \
+    python3-pyqt5 \
     --no-install-recommends \
     && apt-get clean
 
@@ -71,9 +73,9 @@ RUN mkdir -p /src/build
 RUN git clone --recursive https://github.com/gnuradio/volk.git /src/volk --branch v2.4.1
 RUN cd /src/build && cmake -DCMAKE_BUILD_TYPE=Release ../volk/ && make && make install && cd / && rm -rf /src/
 
-# Install Flatc
-RUN mkdir -p /src/build
-RUN git clone https://github.com/google/flatbuffers.git /src/flatbuffers --branch v2.0.0
-RUN cd /src/build && cmake -DCMAKE_BUILD_TYPE=Release ../flatbuffers/ && make && make install && cd / && rm -rf /src/
+# # Install Flatc
+# RUN mkdir -p /src/build
+# RUN git clone https://github.com/google/flatbuffers.git /src/flatbuffers --branch v2.0.0
+# RUN cd /src/build && cmake -DCMAKE_BUILD_TYPE=Release ../flatbuffers/ && make && make install && cd / && rm -rf /src/
 
 
