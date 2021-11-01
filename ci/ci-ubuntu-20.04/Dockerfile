@@ -4,7 +4,8 @@ LABEL maintainer="mormjb@gmail.com"
 # ENV security_updates_as_of 2021-08-31
 
 # Prepare distribution
-RUN apt-get update -q \
+RUN DEBIAN_FRONTEND=noninteractive \
+    apt-get update -q \
     && apt-get -y upgrade
 
 # CPP deps
@@ -62,6 +63,7 @@ RUN apt-get -y install -q \
     cmake \
     pkg-config \
     ca-certificates \
+    libsoapysdr-dev \
     --no-install-recommends
 RUN apt-get clean
 RUN apt-get autoclean
@@ -73,9 +75,9 @@ RUN mkdir -p /src/build
 RUN git clone --recursive https://github.com/gnuradio/volk.git /src/volk --branch v2.4.1
 RUN cd /src/build && cmake -DCMAKE_BUILD_TYPE=Release ../volk/ && make && make install && cd / && rm -rf /src/
 
-# # Install Flatc
-# RUN mkdir -p /src/build
-# RUN git clone https://github.com/google/flatbuffers.git /src/flatbuffers --branch v2.0.0
-# RUN cd /src/build && cmake -DCMAKE_BUILD_TYPE=Release ../flatbuffers/ && make && make install && cd / && rm -rf /src/
+# Install Flatc
+RUN mkdir -p /src/build
+RUN git clone https://github.com/google/flatbuffers.git /src/flatbuffers --branch v2.0.0
+RUN cd /src/build && cmake -DCMAKE_BUILD_TYPE=Release ../flatbuffers/ && make && make install && cd / && rm -rf /src/
 
 
