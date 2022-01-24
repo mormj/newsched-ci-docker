@@ -1,5 +1,5 @@
 FROM ubuntu:20.04
-LABEL maintainer="mormjb@gmail.com"
+LABEL maintainer="jmorman@gnuradio.org"
 
 ENV security_updates_as_of 2021-11-10
 
