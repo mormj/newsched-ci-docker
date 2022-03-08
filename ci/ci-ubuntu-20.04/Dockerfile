@@ -69,7 +69,7 @@ RUN apt-get -y install -q \
 RUN apt-get clean
 RUN apt-get autoclean
 
-RUN pip install meson ninja mako six jinja2 pyyaml
+RUN pip install meson ninja mako six jinja2 pyyaml zmq
 
 # Install VOLK
 RUN mkdir -p /src/build

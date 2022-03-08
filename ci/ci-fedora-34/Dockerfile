@@ -49,7 +49,7 @@ RUN dnf install --refresh -y \
         appstream \
         && dnf clean all
 
-RUN pip install meson ninja mako six jinja2 pyyaml
+RUN pip install meson ninja mako six jinja2 pyyaml zmq
 
 # Install VOLK
 RUN mkdir -p /src/build && \
