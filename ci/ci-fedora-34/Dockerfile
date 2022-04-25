@@ -1,7 +1,7 @@
 FROM fedora:34
 LABEL maintainer="jmorman@gnuradio.org"
 
-ENV security_updates_as_of 2021-11-11
+ENV security_updates_as_of 2022-04-15
 
 # Build
 RUN dnf install --refresh -y \
@@ -41,6 +41,12 @@ RUN dnf install --refresh -y \
 	      gtk3 \
         python3-cairo \
         pango \
+# Audio, SDL
+        SDL-devel \
+        alsa-lib-devel \
+        portaudio-devel \
+        jack-audio-connection-kit-devel \
+        libsndfile-devel \
 # Git For VOLK and libad9361 source building
         git \
 # For ccaching

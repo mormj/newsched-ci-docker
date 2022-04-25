@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 LABEL maintainer="jmorman@gnuradio.org"
 
-ENV security_updates_as_of 2021-11-10
+ENV security_updates_as_of 2022-04-15
 
 # Prepare distribution
 RUN DEBIAN_FRONTEND=noninteractive \
@@ -65,6 +65,9 @@ RUN apt-get -y install -q \
     pkg-config \
     ca-certificates \
     libsoapysdr-dev \
+    libasound2 \
+    portaudio19-dev \
+    libad9361-0 \
     --no-install-recommends
 RUN apt-get clean
 RUN apt-get autoclean
