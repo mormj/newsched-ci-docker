@@ -1,7 +1,7 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 LABEL maintainer="jmorman@gnuradio.org"
 
-ENV security_updates_as_of 2022-04-15
+ENV security_updates_as_of 2022-07-17
 
 # Prepare distribution
 RUN DEBIAN_FRONTEND=noninteractive \
@@ -22,6 +22,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
     python3-numpy \
     libqwt-qt5-dev \
     qtbase5-dev \
+    libvolk2-dev \
     --no-install-recommends \
     && apt-get clean
 
@@ -74,14 +75,9 @@ RUN apt-get autoclean
 
 RUN pip install meson ninja mako six jinja2 pyyaml zmq jsonschema jsonschema-default
 
-# Install VOLK
-RUN mkdir -p /src/build
-RUN git clone --recursive https://github.com/gnuradio/volk.git /src/volk --branch v2.4.1
-RUN cd /src/build && cmake -DCMAKE_BUILD_TYPE=Release ../volk/ && make && make install && cd / && rm -rf /src/
-
 # Install Flatc
 RUN mkdir -p /src/build
 RUN git clone https://github.com/google/flatbuffers.git /src/flatbuffers --branch v2.0.0
-RUN cd /src/build && cmake -DCMAKE_BUILD_TYPE=Release ../flatbuffers/ && make && make install && cd / && rm -rf /src/
+RUN cd /src/build && cmake -DCMAKE_BUILD_TYPE=Release ../flatbuffers/ && make -j8 && make install && cd / && rm -rf /src/
 
 
