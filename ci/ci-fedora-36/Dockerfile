@@ -1,7 +1,7 @@
-FROM fedora:35
+FROM fedora:36
 LABEL maintainer="jmorman@gnuradio.org"
 
-ENV security_updates_as_of 2022-07-17
+ENV security_updates_as_of 2022-07-21
 
 # Build
 RUN dnf install --refresh -y \
@@ -15,7 +15,6 @@ RUN dnf install --refresh -y \
         yaml-cpp-devel \
         gtest-devel \
         cppzmq-devel \
-        flatbuffers-devel \
 # Math libraries
         fftw-devel \
         gsl-devel \
@@ -59,3 +58,6 @@ RUN dnf install --refresh -y \
 
 RUN pip install meson ninja mako six jinja2 pyyaml zmq jsonschema jsonschema-default
 
+RUN dnf install -y \
+        flatbuffers-devel \
+        flatbuffers-compiler

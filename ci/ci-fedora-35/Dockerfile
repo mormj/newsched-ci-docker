@@ -15,7 +15,6 @@ RUN dnf install --refresh -y \
         yaml-cpp-devel \
         gtest-devel \
         cppzmq-devel \
-        flatbuffers-devel \
 # Math libraries
         fftw-devel \
         gsl-devel \
