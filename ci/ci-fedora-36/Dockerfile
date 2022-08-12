@@ -56,7 +56,7 @@ RUN dnf install --refresh -y \
         appstream \
         && dnf clean all
 
-RUN pip install meson ninja mako six jinja2 pyyaml zmq jsonschema jsonschema-default
+RUN pip install meson ninja mako six jinja2 pyyaml zmq jsonschema jsonschema-default packaging
 
 RUN dnf install -y \
         flatbuffers-devel \

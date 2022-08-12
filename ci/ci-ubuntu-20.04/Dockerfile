@@ -72,7 +72,7 @@ RUN apt-get -y install -q \
 RUN apt-get clean
 RUN apt-get autoclean
 
-RUN pip install meson ninja mako six jinja2 pyyaml zmq jsonschema jsonschema-default
+RUN pip install meson ninja mako six jinja2 pyyaml zmq jsonschema jsonschema-default packaging
 
 # Install VOLK
 RUN mkdir -p /src/build
