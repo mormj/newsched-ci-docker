@@ -11,6 +11,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
 # CPP deps
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get install -qy \
+    clang \
     libzmq3-dev \
     doxygen \
     libspdlog-dev \

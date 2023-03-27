@@ -8,6 +8,7 @@ RUN zypper install -y \
         cmake \
         gcc \
         gcc-c++ \
+        clang \
 # CPP deps
         spdlog-devel \
         fmt-devel \
