@@ -44,8 +44,6 @@ RUN mv /sbin/sysctl /sbin/sysctl.orig \
     doxygen \
     doxygen-latex \
     && rm -f /sbin/sysctl \
-    && ln -s /usr/bin/ccache /usr/lib/ccache/cc \
-    && ln -s /usr/bin/ccache /usr/lib/ccache/c++ \
     && mv /sbin/sysctl.orig /sbin/sysctl
 
 # Testing deps
