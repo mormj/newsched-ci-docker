@@ -8,6 +8,7 @@ RUN dnf install --refresh -y \
         cmake \
         gcc \
         gcc-c++ \
+        clang \
 # CPP deps
         boost-devel \
         spdlog-devel \

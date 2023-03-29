@@ -11,6 +11,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
 # CPP deps
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get install -qy \
+    clang \
     libzmq3-dev \
     doxygen \
     libspdlog-dev \
@@ -44,8 +45,6 @@ RUN mv /sbin/sysctl /sbin/sysctl.orig \
     doxygen \
     doxygen-latex \
     && rm -f /sbin/sysctl \
-    && ln -s /usr/bin/ccache /usr/lib/ccache/cc \
-    && ln -s /usr/bin/ccache /usr/lib/ccache/c++ \
     && mv /sbin/sysctl.orig /sbin/sysctl
 
 # Testing deps
